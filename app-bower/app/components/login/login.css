@@ -1,0 +1,34 @@
+
+.login-container {
+  padding: 4rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ height: 100%;
+  width: 100%;
+  box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
+}
+.component-login{
+  background-color: #f0f0f0;
+   width: 25%;
+  margin: 0 auto;
+}
+.cadastro{
+    text-align: left;
+    cursor: pointer;
+}
+.toggle-password-icon {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #6c757d;
+}
+
+.toggle-password-icon:hover {
+  color: #495057;
+}

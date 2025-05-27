@@ -1,0 +1,48 @@
+<div class="component-login">
+  <div class="login-container text-center my-5">
+    <h4>Login</h4>
+    <form>
+      <div class="d-flex gap-3 justify-content-center flex-column">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            ng-model="main.username"
+            required
+            placeholder="Usuário"
+          />
+        </div>
+        <div class="form-group">
+ <div class="form-group" style="position: relative;">
+  <input
+    type="password"
+    class="form-control pr-5"
+    ng-model="main.password"
+    required
+    placeholder="Senha"
+    id="passwordInput"
+  />
+  <i class="bi toggle-password-icon"
+   ng-class="main.showPassword ? 'bi-eye-slash' : 'bi-eye'"
+   ng-click="main.togglePassword()">
+</i>
+</div>
+
+</div>
+
+        <div ng-if="main.errorMessage" class="alert alert-danger mt-2">
+          {{main.errorMessage}}
+        </div>
+        <button ng-disabled="!main.username || !main.password" class="btn btn-primary mt-3" ng-click="main.login()">
+          Entrar
+        </button>
+        <div>
+         Não possui uma conta?
+  <span class="text-primary login text-nowrap" ng-click="main.goToCadastro()">
+    Cadastre-se!
+  </span>
+  </div>
+      </div>
+    </form>
+  </div>
+</div>

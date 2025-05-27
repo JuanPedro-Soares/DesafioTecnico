@@ -1,0 +1,106 @@
+<div class="mb-3">
+  <div class="d-flex gap-3 justify-content-center">
+    <div class="form-group input-default">
+      <label for="selectfiltro">Selecionar Filtros</label>
+      <select
+        id="selectfiltro"
+        class="form-control"
+        ng-model="main.filtroSelecionado"
+        ng-options="opcao for opcao in main.filtro.Filtrar"
+        ng-change="main.limparSeDesabilitado()"
+      >
+        <option value="">Selecione um filtro</option>
+      </select>
+    </div>
+    <div class="form-group input-default">
+      <label for="filtro">Filtro:</label>
+      <input
+        ng-disabled="!main.filtroSelecionado"
+        id="filtro"
+        type="text"
+        ng-model="main.query"
+        ng-change="main.atualizarEstadoBusca()"
+        class="form-control"
+        ng-keypress="main.verificarEnter($event)"
+        placeholder="{{ main.filtroSelecionado ? 'Digite o ' + main.filtroSelecionado : 'Selecione um filtro' }}"
+      />
+    </div>
+    <div class="form-group input-default">
+      <label for="genero">Gênero:</label>
+      <select
+        id="genero"
+        class="form-control"
+        ng-model="main.generoSelecionado"
+        ng-options="gen for gen in main.generos"
+        ng-change="main.atualizarSubgeneros()"
+      >
+        <option value="">Selecione um gênero</option>
+      </select>
+    </div>
+    <div class="form-group input-default">
+      <label for="subgenero">Subgênero:</label>
+      <select
+        id="subgenero"
+        class="form-control"
+        ng-model="main.subgeneroSelecionado"
+        ng-options="sub for sub in main.subgeneros"
+        ng-disabled="!main.generoSelecionado"
+        ng-change="main.atualizarEstadoBusca()"
+      >
+        <option value="">Selecione um subgênero</option>
+      </select>
+    </div>
+    <div class="btn-container align-self-end">
+      <button
+        class="btn btn-primary"
+        ng-click="main.buscar()"
+        ng-disabled="!main.podeBuscar"
+      >
+        <span
+          ng-if="main.isLoading"
+          class="spinner-border spinner-border-sm"
+          role="status"
+          aria-hidden="true"
+        ></span>
+        <i ng-if="!main.isLoading" class="bi bi-search"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="container" ng-if="main.subgeneroProcurado || main.pesquisado">
+  <div class="grid-container">
+    <div class="colunas" ng-repeat="livro in main.livros">
+      <livro info="livro"></livro>
+    </div>
+    
+  </div>
+  
+  <div
+    class="d-flex justify-content-center align-items-center gap-3 mt-4"
+    ng-if="main.totalPages > 1"
+  >
+    <button
+      class="btn btn-outline-primary"
+      ng-click="main.irParaPaginaAnterior()"
+      ng-disabled="main.page === 1"
+    >
+      <i class="bi bi-arrow-left"></i>
+    </button>
+    <span>Página {{ main.page }} de {{ main.totalPages }}</span>
+    <button
+      class="btn btn-outline-primary"
+      ng-click="main.irParaPaginaPosterior()"
+      ng-disabled="main.page === main.totalPages"
+    >
+      <i class="bi bi-arrow-right"></i>
+    </button>
+  </div>
+</div>
+
+<div
+  class="empty-state text-center"
+  ng-if="!(main.subgeneroProcurado || main.pesquisado)"
+>
+  <p>Pesquise um título ou selecione um subgênero para ver os resultados.</p>
+</div>

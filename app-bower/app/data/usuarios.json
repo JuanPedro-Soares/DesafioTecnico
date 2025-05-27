@@ -1,0 +1,69 @@
+{
+  "usuarios": [
+    {
+      "username": "admin",
+      "password": "1234",
+      "id": "c364"
+    },
+    {
+      "id": "2b4e",
+      "username": "juan legal",
+      "password": "123",
+      "favoritos": []
+    },
+    {
+      "id": "2f8f",
+      "username": "te",
+      "password": "te",
+      "favoritos": []
+    },
+    {
+      "id": "8533",
+      "username": "232",
+      "password": "3232",
+      "favoritos": []
+    },
+    {
+      "id": "76ee",
+      "username": "dwa",
+      "password": "dwa",
+      "favoritos": []
+    },
+    {
+      "id": "f94e",
+      "username": "julianoDlç",
+      "password": "321",
+      "favoritos": []
+    },
+    {
+      "id": "4a79",
+      "username": "leticia",
+      "password": "123",
+      "favoritos": []
+    },
+    {
+      "id": "7aa8",
+      "username": "fada",
+      "password": "dwda",
+      "favoritos": []
+    },
+    {
+      "id": "e0ef",
+      "username": "dada",
+      "password": "dad",
+      "favoritos": []
+    },
+    {
+      "id": "0bc4",
+      "username": "weweda",
+      "password": "dwadaw",
+      "favoritos": []
+    },
+    {
+      "id": "6043",
+      "username": "dwaaw",
+      "password": "dadav ",
+      "favoritos": []
+    }
+  ]
+}

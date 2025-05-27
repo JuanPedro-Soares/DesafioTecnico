@@ -1,0 +1,46 @@
+<div
+  class="modal fade show"
+  style="display: block"
+  tabindex="-1"
+  role="dialog"
+  ng-if="main.show"
+>
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ main.info.title }}</h5>
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          ng-click="main.fecharModal()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Autor:</strong> {{ main.info.author_name.join(', ') }}</p>
+        <p>
+          <strong>Resumo:</strong> {{ main.info.resumo || 'Resumo não
+          disponível.' }}
+        </p>
+        <p>
+          <strong>Data de Publicação:</strong>
+          {{ main.info.first_publish_year ? main.info.first_publish_year : 'Data
+          não disponível.' }}
+        </p>
+        <p>
+          <strong>ISBN:</strong> {{ main.info.isbn ? main.info.isbn :
+          'ISBN não disponível.' }}
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          ng-click="main.fecharModal()"
+        >
+          Fechar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

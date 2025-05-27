@@ -1,0 +1,14 @@
+<div class="card container-card" ng-click="main.abrirModal()">
+  <img class="card-img-top img-limitada" ng-src="{{main.getCapa()}}" alt="Capa do livro">
+  <div class="card-body">
+   <h5 class="card-title">{{ main.truncate(main.info.title, 60) }}</h5>
+    <p class="card-text">Autor(es): {{main.info.author_name.join(', ')}}</p>
+  </div>
+  <link rel="stylesheet" href="components/livro/livro.css">
+</div>
+
+<modal
+  show="main.showModal"
+  on-close="main.showModal = false"
+  info="main.info">
+</modal>

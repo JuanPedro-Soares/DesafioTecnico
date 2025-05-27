@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="bibliotecaApp">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Biblioteca</title>
+
+
+    <link
+      rel="stylesheet"
+      href="bower_components/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+ 
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+
+
+    <script src="app.js"></script>
+    <script src="services/livro.service.js"></script>
+    <script src="services/auth.service.js"></script>
+    <script src="components/livro/livro.component.js"></script>
+    <script src="components/initial-page/initial-page.component.js"></script>
+    <script src="components/login/login-page.component.js"></script>
+    <script src="components/cadastro/cadastro-page.component.js"></script>
+    <script src="components/modal/modal.component.js"></script>
+  </head>
+
+  <body class="container mt-4">
+
+    <div class="container text-center my-5">
+      <div class="d-flex justify-content-center mb-3">
+        <img src="assets/logo.png" alt="logo" class="logo" />
+        <h1 class="display-3 fw-bold">Ilumirus</h1>
+      </div>
+      <h5 class="text-muted">Sua biblioteca virtual</h5>
+    </div>
+
+
+    <div ng-view></div>
+
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

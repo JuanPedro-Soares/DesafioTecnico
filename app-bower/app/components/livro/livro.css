@@ -1,0 +1,19 @@
+.img-limitada{
+    max-width: 100%;
+    min-height: 18.75rem;;
+    max-height: 18.75rem;
+    padding: .1875rem;
+}
+.container-card {
+  width: 18.75rem;
+  height: 28.125rem;
+  box-shadow: 0 0 1rem rgba(0,0,0,.5);
+  border-radius: 0.625rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.6);
+}
