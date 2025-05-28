@@ -20,9 +20,15 @@ angular.module('bibliotecaApp').component('initialPage', {
     main.isLoading = false;
     main.filtroSelecionado = "Título";
     main.filtro = { Filtrar: [] };
-
+    main.blur = false;
+   
+    main.aplicarBlur = function(){
+      main.blur=true
+    }
+    main.retirarBlur = function(){
+      main.blur=false;
+    }
     main.$onInit = function () {
-
       $http.get("data/filtro.json").then(
         function (response) {
           main.filtro = response.data;
@@ -44,7 +50,6 @@ angular.module('bibliotecaApp').component('initialPage', {
     };
 
     main.buscar = function (page = 1) {
-      if (!main.podeBuscar) return;
       main.isLoading = true;
       main.page = page;
       main.pesquisado = main.query;
@@ -57,7 +62,7 @@ angular.module('bibliotecaApp').component('initialPage', {
         main.filtroSelecionado
       ).then(
         function (data) {
-            console.log(data.livros);
+          console.log(main.page)
           main.livros = data.livros.sort((a, b) =>
             a.title.localeCompare(b.title)
           );
@@ -68,8 +73,11 @@ angular.module('bibliotecaApp').component('initialPage', {
           main.isLoading = false;
         }
       );
-    };
-
+       if(main.subgeneroSelecionado === main.subgeneroProcurado && main.query === main.pesquisado){
+          main.podeBuscar = false;
+        }
+    }; 
+    
     main.irParaPaginaAnterior = function () {
       if (main.page > 1) {
         main.buscar(main.page - 1);
@@ -86,6 +94,9 @@ angular.module('bibliotecaApp').component('initialPage', {
       main.podeBuscar =
         (main.query && main.query.length >= 2) ||
         (main.subgeneroSelecionado !== null && main.subgeneroSelecionado !== "") || (main.generoSelecionado !== null && main.generoSelecionado !== "");
+        if(main.subgeneroSelecionado === main.subgeneroProcurado && main.query === main.pesquisado){
+          main.podeBuscar = false;
+        }
     };
 
     main.limparSeDesabilitado = function () {
@@ -100,7 +111,7 @@ angular.module('bibliotecaApp').component('initialPage', {
     main.atualizarSubgeneros = function () {
       main.subgeneroSelecionado = null;
       main.subgeneros = main.subgenerosPorGenero[main.generoSelecionado] || [];
-      if(!main.generoSelecionado){
+      if(!main.generoSelecionado && !main.query){
         main.podeBuscar = false;
       }
     };

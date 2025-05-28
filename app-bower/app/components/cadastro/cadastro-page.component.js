@@ -3,8 +3,7 @@ angular.module("bibliotecaApp").component("cadastro", {
   controller: [
     "AuthService",
     "$location",
-    "$timeout",
-    function (AuthService, $location, $timeout) {
+    function (AuthService, $location, ) {
       const main = this;
       main.username = "";
       main.password = "";
@@ -35,8 +34,7 @@ angular.module("bibliotecaApp").component("cadastro", {
               main.successMessage =
                 "Cadastro realizado com sucesso! Você será redirecionado para o login.";
                 main.goToLogin();           
-              //ta dando reload no login pq o banco é mockado, ai eu mando o post e redireciono pro login, 
-              // qnd acontece isso os dados são salvos no meu banco mockado e atualiza a aplicação para os novos dados
+              
             } else {
               main.errorMessage = "Usuário já existe ou erro ao cadastrar.";
             }

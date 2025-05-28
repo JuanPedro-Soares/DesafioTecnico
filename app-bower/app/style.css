@@ -4,17 +4,10 @@
 @import url("components/initial-page/initial-page.css");
 @import url("components/modal/modal.component.js");
 
-.grid-container {
-  display: grid;
-  margin: 0 auto;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 3rem .625rem ;
-}
-
 .logo {
   align-self: center;
-  width: 80px;
-  height: 70px;
+  width: 5rem;
+  height: 4.375rem;
 }
 body{
   background-color: #fff;

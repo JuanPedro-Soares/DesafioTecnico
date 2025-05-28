@@ -2,8 +2,9 @@ angular.module('bibliotecaApp')
   .service('AuthService', [
     '$http', '$window',
     function($http, $window) {
+      let apiUrl = 'https://68364957664e72d28e405aec.mockapi.io/usuarios/usuarios';
       this._loadUsers = function() {
-        return $http.get('http://localhost:4001/usuarios')
+        return $http.get(apiUrl)
           .then(res => res.data);
       };
 
@@ -12,6 +13,8 @@ angular.module('bibliotecaApp')
           const match = users.find(u => u.username === user && u.password === pass);
           if (match) {
             $window.localStorage.setItem('isLogged', 'true');
+            $window.localStorage.setItem('id', match.id);
+            
             return true;
           }
           return false;
@@ -23,7 +26,8 @@ angular.module('bibliotecaApp')
           if (users.find(u => u.username === user)) {
             return false;
           }
-          return $http.post('http://localhost:4001/usuarios', { username: user, password: pass,favoritos:[] })
+          userData = { username: user, password: pass,favoritos:[] }
+          return $http.post(apiUrl, userData)
             .then(() => true)
             .catch(() => false);
         });

@@ -1,6 +1,7 @@
 angular.module('bibliotecaApp')
   .service('LivroService', function($http, $q) {
     this.buscar = function(query, subgenero, page = 1, filtroSelecionado) {
+      console.log(query)
       const urlBase = 'https://openlibrary.org/search.json?limit=12&page=' + page;
       const params = [];
 
@@ -23,12 +24,10 @@ angular.module('bibliotecaApp')
           const numFound = resp.data.numFound;
 
           const promessas = docs.map(livro => {
-            // 1) Extrai e atribui o ISBN **antes** da chamada de detalhe
             const ia = Array.isArray(livro.ia) ? livro.ia : [];
             const isbnRaw = ia.find(item => item.startsWith('isbn_'));
             livro.isbn = isbnRaw ? isbnRaw.replace(/^isbn_/, '') : null;
 
-            // 2) Busca o resumo — mas o ISBN já está definido no objeto
             return $http.get(`https://openlibrary.org${livro.key}.json`)
               .then(det => {
                 const desc = det.data.description;
@@ -38,7 +37,6 @@ angular.module('bibliotecaApp')
                 return livro;
               })
               .catch(() => {
-                // Mesmo que falhe, devolve o livro (com isbn já atribuído)
                 livro.resumo = null;
                 return livro;
               });

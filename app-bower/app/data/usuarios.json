@@ -70,6 +70,40 @@
       "username": "abner",
       "password": "neymar1",
       "favoritos": []
+    },
+    {
+      "id": "48f5",
+      "username": "juan",
+      "password": "123",
+      "favoritos": []
+    },
+    {
+      "id": "af46",
+      "username": "juan2",
+      "password": "123",
+      "favoritos": []
+    },
+    {
+      "id": "81e2",
+      "username": "123",
+      "password": "123",
+      "favoritos": [
+        "Anatomie des SS-Staates",
+        "C/C++ programmerʼs reference",
+        "\"Pass it on\" : the story of Bill Wilson and how the A.A. message reached the world"
+      ]
+    },
+    {
+      "id": "2244",
+      "username": "323",
+      "password": "321",
+      "favoritos": []
+    },
+    {
+      "id": "764d",
+      "username": "1234",
+      "password": "321",
+      "favoritos": []
     }
   ]
 }

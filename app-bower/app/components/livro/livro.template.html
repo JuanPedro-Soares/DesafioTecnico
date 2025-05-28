@@ -1,5 +1,7 @@
 <div class="card container-card" ng-click="main.abrirModal()">
   <img class="card-img-top img-limitada" ng-src="{{main.getCapa()}}" alt="Capa do livro">
+  <span ng-if="!main.favorito" ng-click="main.favoritar($event)"><i class="bi bi-star favorito" ></i></span>
+  <span ng-if="main.favorito" ng-click="main.desfavoritar($event)"><i class="bi bi-star-fill favorito"></i></span>
   <div class="card-body">
    <h5 class="card-title">{{ main.truncate(main.info.title, 60) }}</h5>
     <p class="card-text">Autor(es): {{main.info.author_name.join(', ')}}</p>
@@ -9,6 +11,6 @@
 
 <modal
   show="main.showModal"
-  on-close="main.showModal = false"
+  on-close="main.fecharModal()"
   info="main.info">
 </modal>

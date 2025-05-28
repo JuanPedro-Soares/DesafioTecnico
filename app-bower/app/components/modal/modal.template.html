@@ -1,20 +1,14 @@
 <div
-  class="modal fade show"
+  class="modal"
   style="display: block"
   tabindex="-1"
   role="dialog"
   ng-if="main.show"
 >
-  <div class="modal-dialog modal-lg" role="document">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">{{ main.info.title }}</h5>
-        <button
-          type="button"
-          class="btn-close"
-          aria-label="Close"
-          ng-click="main.fecharModal()"
-        ></button>
       </div>
       <div class="modal-body">
         <p><strong>Autor:</strong> {{ main.info.author_name.join(', ') }}</p>
@@ -35,7 +29,7 @@
       <div class="modal-footer">
         <button
           type="button"
-          class="btn btn-secondary"
+          class="btn btn-danger"
           ng-click="main.fecharModal()"
         >
           Fechar

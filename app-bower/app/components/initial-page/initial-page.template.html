@@ -1,5 +1,5 @@
-<div class="mb-3">
-  <div class="d-flex gap-3 justify-content-center">
+<div class="mb-3" ng-class="{'blurred': main.blur}">
+  <div class="d-flex gap-3 justify-content-center form-responsive">
     <div class="form-group input-default">
       <label for="selectfiltro">Selecionar Filtros</label>
       <select
@@ -71,13 +71,13 @@
 <div class="container" ng-if="main.subgeneroProcurado || main.pesquisado">
   <div class="grid-container">
     <div class="colunas d-flex justify-content-center" ng-repeat="livro in main.livros">
-      <livro info="livro"></livro>
+      <livro info="livro" on-open="main.aplicarBlur()" on-close="main.retirarBlur()"></livro>
     </div>
     
   </div>
   
   <div
-    class="d-flex justify-content-center align-items-center gap-3 mt-4"
+    class="d-flex justify-content-center align-items-center gap-3 mt-4 paginator"
     ng-if="main.totalPages > 1"
   >
     <button

@@ -14,7 +14,6 @@ angular.module('bibliotecaApp', ['ngRoute'])
   })
   .run(function($rootScope, $location, AuthService) {
     $rootScope.$on('$routeChangeStart', function(event, next, current) {
-      console.log('rota ' + next.$$route.originalPath);
       if (next.$$route && next.$$route.originalPath === '/' && !AuthService.isLoggedIn()) {
         event.preventDefault();
         $location.path('/login');
