@@ -6,9 +6,9 @@
 
 .logo {
   align-self: center;
-  width: 5rem;
-  height: 4.375rem;
+  height: 12.375rem;
 }
 body{
-  background-color: #fff;
+  background: linear-gradient(to bottom, #ffffff, #90BC86);
+  height: 100vh;
 }

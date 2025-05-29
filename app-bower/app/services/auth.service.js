@@ -38,6 +38,7 @@ angular.module('bibliotecaApp')
       };
 
       this.logout = function() {
+        $window.localStorage.removeItem('id');
         $window.localStorage.removeItem('isLogged');
       };
     }

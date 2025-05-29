@@ -1,7 +1,16 @@
+<div class="logo">
+  <img src="public/assets/logo.svg" alt="logo" class="img-logo"/>
+</div>
+<div class="logout-button">
+  
+  <button class="btn btn-outline-danger" ng-click="main.sair()">
+   <div class="d-flex gap-2"> <span>Sair</span> <i class="bi bi-box-arrow-right"></i></div>
+  </button>
+</div>
 <div class="mb-3" ng-class="{'blurred': main.blur}">
   <div class="d-flex gap-3 justify-content-center form-responsive">
     <div class="form-group input-default">
-      <label for="selectfiltro">Selecionar Filtros</label>
+      <label for="selectfiltro">Selecionar Filtros:</label>
       <select
         id="selectfiltro"
         class="form-control"
@@ -68,7 +77,8 @@
   </div>
 </div>
 
-<div class="container" ng-if="main.subgeneroProcurado || main.pesquisado">
+<div class="container" ng-if="main.livros.length">
+  <div class="d-flex justify-content-center" ng-if="main.favoritos"><h2>Favoritos</h2></div>
   <div class="grid-container">
     <div class="colunas d-flex justify-content-center" ng-repeat="livro in main.livros">
       <livro info="livro" on-open="main.aplicarBlur()" on-close="main.retirarBlur()"></livro>
@@ -102,5 +112,5 @@
   class="empty-state text-center"
   ng-if="!(main.subgeneroProcurado || main.pesquisado)"
 >
-  <p>Pesquise um título ou selecione um subgênero para ver os resultados.</p>
+  <p>Pesquise um título ou selecione um subgênero para ver outros resultados.</p>
 </div>

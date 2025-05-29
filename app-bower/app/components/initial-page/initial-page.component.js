@@ -7,7 +7,6 @@ angular.module('bibliotecaApp').component('initialPage', {
     main.pesquisado = "";
     main.livros = [];
     main.podeBuscar = false;
-    main.logo = "assets/logo.jpeg";
     main.generos = [];
     main.subgenerosPorGenero = {};
     main.generoSelecionado = null;
@@ -21,7 +20,7 @@ angular.module('bibliotecaApp').component('initialPage', {
     main.filtroSelecionado = "Título";
     main.filtro = { Filtrar: [] };
     main.blur = false;
-   
+    main.favoritos = false
     main.aplicarBlur = function(){
       main.blur=true
     }
@@ -47,9 +46,24 @@ angular.module('bibliotecaApp').component('initialPage', {
           console.error("Erro ao carregar generos:", error);
         }
       );
+      const userId = localStorage.getItem('id');
+      if (userId) {
+        $http.get(`https://68364957664e72d28e405aec.mockapi.io/usuarios/usuarios/${userId}`)
+        .then(function (response) {
+          main.favoritos = true
+          main.livros = response.data.favoritos || [];
+      });
+      } 
+      else {
+        main.livros = [];
+      }
     };
-
+    main.sair = function () {
+      AuthService.logout();
+      $location.path('/login');
+    }
     main.buscar = function (page = 1) {
+      main.favoritos = false;
       main.isLoading = true;
       main.page = page;
       main.pesquisado = main.query;
@@ -122,7 +136,6 @@ angular.module('bibliotecaApp').component('initialPage', {
       }
     };
 
-    main.$onInit();
   },
   controllerAs: 'main'
 });

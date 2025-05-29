@@ -1,24 +1,21 @@
+
 .cadastro-container {
   padding: 4rem;
   margin: 0 auto;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 100%;
-  box-shadow: .625rem .625rem 0 rgba(0, 0, 0, 0.1);
+  width: 30rem;
+  
 }
 .component-cadastro{
-  background-color: #f0f0f0;
-  width: 20rem;
-  margin: 0 auto;;
+   width: 30rem;
+  margin: 0 auto;
 }
 .login{
     text-align: left;
     cursor: pointer;
 }
-
 .toggle-password-icon {
   position: absolute;
   top: 50%;
@@ -31,4 +28,29 @@
 
 .toggle-password-icon:hover {
   color: #495057;
+}
+.introducao{
+  font-size: 4rem;
+}
+.custom-bg{
+  background: linear-gradient(to bottom, #E9FFD6, #73B277);
+  margin: 20% 0 0 0;
+  height: 35rem;
+  box-shadow: 0 10px 8px rgba(0, 0, 0, 0.1);
+}
+.fonte{
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 2.5rem;
+  font: bold;
+  color: #333;
+}
+@media (max-width: 1000px) {
+  .introducao{
+    display: none;
+  }
+ 
+.cadastro-container{
+width: 100%;
+}
+  
 }
